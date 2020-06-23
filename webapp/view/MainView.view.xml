@@ -1,0 +1,108 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m" controllerName="cognitivepp.CognitiveApp.controller.MainView" displayBlock="true">
+<!--	<Shell id="shell">-->
+		<App id="app">
+			<pages>
+				<Page id="page" showHeader="false">
+					<!--</Page> title="{i18n>title}" titleLevel="H1">-->
+					<content>
+						<Panel headerText="Upload Invoice ">
+							<u:FileUploader id="fileUploader" maximumFileSize="4MB" 
+							change="onChange" fileType="pdf,png"
+							name="invoice" 
+							uploadUrl="http://localhost:8081/uploadfile/" 
+							tooltip="Upload your file to the local server"
+							sendXHR = "true"
+							uploadComplete= "handleUploadComplete" />
+							<Button text="Upload File" press="handleUploadPress"/>
+							<content/>
+						</Panel>
+						<Panel xmlns="sap.m" width="auto" expandable="true" expanded="true" id="panel1">
+							<headerToolbar>
+								<Toolbar id="toolbar1">
+									<Title text="List of File Uploaded"/>
+									<ToolbarSpacer/>
+									<Button icon="sap-icon://settings"/>
+								</Toolbar>
+							</headerToolbar>
+							<content>
+								<Table noDataText="No Data found" id="invoicetable" items="{ path : '/' }">
+									<items>
+										<ColumnListItem type="Active" id="item0">
+											<Button xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m" id="button3" icon="sap-icon://detail-view" press="onTableRowClick"/>
+											<Text text="{vendorid}" id="text0"/>
+											<Text text="{filename}" id="text1"/>
+											<Text text="{invoicestatus}" id="text2"/>
+										</ColumnListItem>
+									</items>
+									<columns>
+										<Column xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m" id="column0_1589816560482">
+											<header>
+												<Text text="View Invoice" id="text0_1589816560482"/>
+											</header>
+										</Column>
+										<Column id="column0">
+											<header>
+												<Label text="Vendor ID" id="label0"/>
+											</header>
+										</Column>
+										<Column id="column1">
+											<header>
+												<Label text="File Name" id="label1"/>
+											</header>
+										</Column>
+										<Column id="column2">
+											<header>
+												<Label text="Invoice Status" id="label2"/>
+											</header>
+										</Column>
+									</columns>
+								</Table>
+							</content>
+						</Panel>
+						<!--					
+						<l:VerticalLayout xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns="sap.m" xmlns:l="sap.ui.layout" width="100%" id="layout1">
+									<l:content>
+										<Table xmlns:u="sap.ui.unified" xmlns:html="http://www.w3.org/1999/xhtml"
+										xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" 
+										xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+										itemPress="onTableRowClick" noDataText="No data found" id="mTable" 
+										items="{path : '/Blobs/Blob'}" width="100%">
+											<items>
+												<ColumnListItem id="item1_copy_emptable_0_emptable_0_filelist_0_filelist_0_filelist_0_copy_filelist_0" type="Active">
+													<cells>
+														<Text text="{Name}" id="idName"/>
+														<Text text="{Url}" id="idListUrl"/>
+														<Button id="idProcessInv" text="Process" press="fnProcessInv"/>
+														
+													</cells>
+												</ColumnListItem>
+											</items>
+											<columns>
+												<Column id="column0">
+													<header>
+														<Label text="File Name" id="label1"/>
+													</header>
+												</Column>
+												<Column id="column1">
+													<header>
+														<Label text="Location" id="label2"/>
+													</header>
+												</Column>
+												
+												<Column id="column2">
+													<header>
+														<Label text="Process" id="label3"/>
+													</header>
+												</Column>
+											</columns>
+										</Table>
+										
+									</l:content>
+								</l:VerticalLayout>
+-->
+					</content>
+				</Page>
+			</pages>
+		</App>
+<!--	</Shell>-->
+</mvc:View>

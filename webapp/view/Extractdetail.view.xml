@@ -1,0 +1,67 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="cognitivepp.CognitiveApp.controller.Extractdetail">
+	<App>
+		<pages>
+			<Page title="Extracted File Information" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+					
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout" id="form0">
+				        <sap.ui.layout.form:content>
+				    <!--        <core:Title text="Title" id="title0"/>-->
+				            <Label text="Select File " id="label0"/>
+				            <Select id="selectfile" items="{ path: '/' }">
+				                <items>
+				                    <core:Item key="{fileurl}" text="{filename}" id="item0_1590802409970"/>
+				                 </items>
+				                
+				            </Select>
+				            <Button xmlns="sap.m" text="Extract " id="button0" press="OnExtract"/>
+				            </sap.ui.layout.form:content>
+				    <sap.ui.layout.form:toolbar>
+				        <Toolbar width="100%" id="toolbar1">
+				            <content>
+				                <Button xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Refresh " id="button1" press="OnRefresh" icon="sap-icon://refresh"/>
+				            </content>
+				        </Toolbar>
+				    </sap.ui.layout.form:toolbar>
+				    </sap.ui.layout.form:SimpleForm>
+					
+					
+						<Table noDataText="No Data found" id="extractdetails" items="{ path : '/', sorter : {path : 'contenttype'}}">
+									<items>
+										<ColumnListItem type="Active" id="item0">
+											<Text text="{filename}" id="idrow"/>
+											<Text text="{contenttype}" id="idtype"/>
+											<Text text="{contentname}" id="text0"/>
+											<Text text="{contentvalue}" id="text1"/>
+										</ColumnListItem>
+									</items>
+									<columns>
+										<Column xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m" id="column0_15898165604">
+											<header>
+												<Text text="File Name " id="file"/>
+											</header>
+										</Column>
+										
+										<Column xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m" id="column1_15898165604">
+											<header>
+												<Text text="Type " id="Rowtype"/>
+											</header>
+										</Column>
+										<Column xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m" id="column0_1589816560482">
+											<header>
+												<Text text="Field Name " id="text0_1589816560482"/>
+											</header>
+										</Column>
+										<Column id="column0">
+											<header>
+												<Label text="Value" id="label01"/>
+											</header>
+										</Column>
+									</columns>
+								</Table>
+					
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

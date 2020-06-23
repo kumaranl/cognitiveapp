@@ -1,0 +1,64 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tnt="sap.tnt" height="100%" controllerName="cognitivepp.CognitiveApp.controller.Menu">
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button id="sideNavigationToggleButton" icon="sap-icon://menu2" type="Transparent" press=".onSideNavButtonPress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Button>
+				<tnt:content>
+					<Text xmlns="sap.m" text="Vendor Invoice Management" id="text1"/>
+					<ToolbarSpacer width="500px" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tnt="sap.tnt" id="spacer2"/>
+					<Text xmlns="sap.m" text="Vendor ID " id="text32"/>
+					<Text xmlns="sap.m" text="{/user1/vendorid}" id="text2"/>
+					<Button text="Logout" id="ibButton" type="Transparent" press=".handleUserNamePress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+				</tnt:content>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation id="sideNavigation" selectedKey="subItem3" itemSelect=".onItemSelect">
+				<tnt:NavigationList>
+					<tnt:NavigationListItem text="Vendor Menu" icon="sap-icon://employee">
+						<tnt:NavigationListItem id="uploadItem" text="Upload Invoice" key="page1"/>
+						<tnt:NavigationListItem text="View Invoice Status" key="page2"/>
+						<tnt:NavigationListItem text="Invoice details" key="page5"/>
+					</tnt:NavigationListItem>
+					<tnt:NavigationListItem text="Processor Menu" icon="sap-icon://building">
+						<tnt:NavigationListItem text="Extract Information" key="page3"/>
+						<tnt:NavigationListItem text="Post SAP Document" key="page4"/>
+					</tnt:NavigationListItem>
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList/>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer">
+				<pages>
+					<ScrollContainer id="page1" horizontal="false" vertical="true" height="100%">
+						<mvc:XMLView viewName="cognitivepp.CognitiveApp.view.MainView"/>
+					</ScrollContainer>
+					<ScrollContainer id="page2" horizontal="false" vertical="true" height="100%">
+							<mvc:XMLView viewName="cognitivepp.CognitiveApp.view.Invoice"/>
+					</ScrollContainer>
+					<ScrollContainer id="page3" horizontal="false" vertical="true" height="100%">
+							<mvc:XMLView viewName="cognitivepp.CognitiveApp.view.Extract"/>
+					</ScrollContainer>
+					
+					<ScrollContainer id="page4" horizontal="false" vertical="true" height="100%">
+						<mvc:XMLView viewName="cognitivepp.CognitiveApp.view.Postdocument"/>
+					</ScrollContainer>
+					<ScrollContainer id="page5" horizontal="false" vertical="true" height="100%">
+							<mvc:XMLView viewName="cognitivepp.CognitiveApp.view.Extractdetail"/>
+					</ScrollContainer>
+				</pages>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>

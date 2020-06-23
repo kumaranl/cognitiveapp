@@ -1,0 +1,104 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="cognitivepp.CognitiveApp.controller.Invoice">
+	<App>
+		<pages>
+			<Page title="View Invoice Status">
+				<content>
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout" id="form0">
+						<sap.ui.layout.form:content>
+							<Label text="Vendor" id="label1"/>
+							<Input width="100%" id="idvendorsearch" fieldWidth="20%" editable="false" value="{/user1/vendorid}"/>
+							<Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+								xmlns:sap.ui.layout.form="sap.ui.layout.form" text="Status" id="label1_copy"/>
+							<Select xmlns="sap.m" id="idstatus">
+								<items>
+									<core:Item xmlns:core="sap.ui.core" key="All" text="All" id="item0"/>
+									<core:Item xmlns:core="sap.ui.core" key="UPLD" text="Uploaded" id="item1"/>
+									<core:Item xmlns:core="sap.ui.core" key="EXTR" id="item2" text="Extracted"/>
+									<core:Item xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+										xmlns:core="sap.ui.core" key="VALI" text="Validated" id="item1_copy"/>
+									<core:Item xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+										xmlns:core="sap.ui.core" key="POST" text="Posted in SAP" id="item1_copy2"/>
+								</items>
+							</Select>
+							<!--    	<Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+								xmlns:sap.ui.layout.form="sap.ui.layout.form" text="Created Date" id="label1_copy2"/>
+						      <DatePicker xmlns="sap.m" id="idcreatedt" value="{today()}" placeholder="Enter Date"/>
+			  -->
+						</sap.ui.layout.form:content>
+						<sap.ui.layout.form:toolbar>
+							<Toolbar width="100%" id="toolbar1">
+								<content>
+									<Button xmlns="sap.m" text="Search" id="button0" activeIcon="sap-icon://search" press="onSearch"/>
+								</content>
+							</Toolbar>
+						</sap.ui.layout.form:toolbar>
+					</sap.ui.layout.form:SimpleForm>
+					<Panel xmlns="sap.m" width="auto" expandable="true" expanded="true" id="panel0">
+						<headerToolbar>
+							<Toolbar id="toolbar2">
+								<Title text="Search Results"/>
+								<ToolbarSpacer/>
+								<Button icon="sap-icon://settings"/>
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<Table items="{ path : '/' }"  noDataText="Drop column list items here and columns in the area above" id="searchtable">
+								<items>
+									<ColumnListItem type="Active" id="item3"  press = "onItemPress">
+										<cells>
+											<Button xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m" id="button3"
+												icon="sap-icon://detail-view" press="onTableRowClick"/>
+											<Text id="text2" text="{filename}"/>
+											<Text id="text4" text="{invoicestatus}"/>
+											<Text id="text5" text="{createdate}"/>
+											<Text id="text61" text="{extractdate}"/>
+											<Text id="text62" text="{posteddate}"/>
+											<Text id="text63" text="{comments}"/></cells>
+									</ColumnListItem>
+								</items>
+								<columns>
+									<Column id="column0">
+										<header>
+											<Label text="View Invoice" id="lbl1"/>
+										</header>
+									</Column>
+									<Column id="column1">
+										<header>
+											<Label text="Filename" id="label4"/>
+										</header>
+									</Column>
+									<Column id="column2">
+										<header>
+											<Label text="Status" id="label5"/>
+										</header>
+									</Column>
+									<Column id="column0_1589904864155">
+										<header>
+											<Text text="Created Date" id="text0"/>
+										</header>
+									</Column>
+									<Column id="column0_1589904864156">
+										<header>
+											<Text text="Extracted Date" id="text1"/>
+										</header>
+									</Column>
+									<Column id="column0_1589904864157">
+										<header>
+											<Text text="Posted Date" id="text21"/>
+										</header>
+									</Column>
+									<Column id="column0_1589904864158">
+										<header>
+											<Text text="Comments" id="text22"/>
+										</header>
+									</Column>
+								</columns>
+							</Table>
+						</content>
+					</Panel>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

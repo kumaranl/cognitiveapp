@@ -1,0 +1,124 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "cognitivepp.CognitiveApp",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "cognitivepp.CognitiveApp.view.login",
+			"type": "XML",
+			"async": true,
+			"id": "login"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "cognitivepp.CognitiveApp.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "cognitivepp.CognitiveApp.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "login",
+					"view": "login",
+					"targerAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "Menu/{user}",
+					"name": "Menu",
+					"view": "Menu",
+					"targerAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "newuser",
+					"name": "Newuser",
+					"view": "Newuser",
+					"targerAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "Extractdetail/{filename}",
+					"name": "Extractdetail",
+					"view": "Extractdetail",
+					"targerAggregation": "pages",
+					"controlId": "app"
+				}
+			],
+			"targets": {
+				"Extractdetail": {
+					"viewType": "XML",
+					"viewName": "Extractdetail"
+				},
+				"Postdocument": {
+					"viewType": "XML",
+					"viewName": "Postdocument"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}
